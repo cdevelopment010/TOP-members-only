@@ -1,4 +1,5 @@
 const { body, validationResult} = require("express-validator"); 
+const passport = require("passport");
 
 const validateUser = [
     body("email").trim()
@@ -15,22 +16,27 @@ exports.getSignInForm = async (req, res) => {
     res.render("signInForm");
 }
 
-exports.postSignInForm = [
-    validateUser,
+exports.postSignInForm = passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/sign-in"
+})
 
-    async (req, res) => {
+// exports.postSignInForm = [
+//     validateUser,
 
-        const user = { email: req.body.email }
+//     async (req, res) => {
 
-        const errors = validationResult(req); 
+//         const user = { email: req.body.email }
+
+//         const errors = validationResult(req); 
         
-        if(!errors.isEmpty()) {
+//         if(!errors.isEmpty()) {
 
-            return res.status(400).render("signInForm", {
-                user: user,
-                errors: errors.array()
-            })
-        }
-        res.redirect("/")
-    }
-]
+//             return res.status(400).render("signInForm", {
+//                 user: user,
+//                 errors: errors.array()
+//             })
+//         }
+//         res.redirect("/")
+//     }
+// ]
