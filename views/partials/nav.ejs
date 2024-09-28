@@ -1,0 +1,12 @@
+<nav>
+    <h3><a href="/" class="link-none">Home</a></h3>
+    <ul>
+        <% if (!locals.currentUser) { %>
+            <li class="list-style-none me-2"><a href="/sign-in" class="link-none link-hover">Sign in</a></li>
+            <li class="list-style-none me-2"><a href="/sign-up" class="link-none link-hover">Create account</a></li>
+        <% } else {%>
+            <li class="list-style-none me-2"><a href="/messages/create" class="link-none link-hover">Create message</a></li>
+            <li class="list-style-none me-2"><a href="/sign-out" class="link-none link-hover">Sign out</a></li>
+        <% } %>
+    </ul>
+</nav>

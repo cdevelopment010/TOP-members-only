@@ -1,9 +1,8 @@
 const { Router } = require("express");
 const signOutRouter = Router(); 
+const signOutController = require("../controllers/signOutController");
 
 
-signOutRouter.get("/", (req, res) => {
-    res.send("sign out...")
-}); 
+signOutRouter.get("/", signOutController.getSignOut); 
 
 module.exports =   signOutRouter ; 

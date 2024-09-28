@@ -1,0 +1,21 @@
+# notes
+
+- [x] Create a nav
+  - [x] Home btn
+  - [x] Sign in or create account if !req.user
+  - [x] If signed in then should show Sign out
+  - [x] if req.user then show create message
+  - [x] Styling
+- [ ] Home page
+  - [ ] Show list of messages as a card
+  - [ ] If admin, show a delete icon in the header
+    - [ ] A user should be able to delete their own message as well
+  - [ ] Click to go to message detail (basically just a card in its own view)
+- [ ] Create user
+  - [ ] Needs styling
+- [ ] Sign in
+  - [ ] Needs styling
+- [ ] Messages
+  - [ ] List all messages
+  - [ ] Create message
+  - [ ] Don't want to be able to update messages
