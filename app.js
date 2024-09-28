@@ -16,7 +16,6 @@ const signUpRouter = require("./routes/signUpRouter");
 const signInRouter = require("./routes/signInRouter");
 const signOutRouter = require("./routes/signOutRouter");
 const messagesRouter = require("./routes/messagesRouter");
-const usersRouter = require("./routes/usersRouter");
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true})); 
@@ -82,7 +81,6 @@ app.use("/sign-up", signUpRouter);
 app.use("/sign-in", signInRouter);
 app.use("/sign-out", signOutRouter);
 app.use("/messages", messagesRouter);
-app.use("/users", usersRouter);
 
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
 

@@ -10,8 +10,7 @@ const validateUser = [
         .isEmail().withMessage("Must be a valid email"),
     body("password").trim()
         .notEmpty().withMessage("Password must not be empty")
-        .isLength({ min: 6}).withMessage("Password must be at least 6 characters")
-        .escape(),
+        .isLength({ min: 6}).withMessage("Password must be at least 6 characters"),
     body("confirmPassword").custom((value, { req }) => {
         return value === req.body.password;
     }).withMessage("Passwords do not match")

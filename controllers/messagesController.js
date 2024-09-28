@@ -2,9 +2,9 @@ const db = require("../db/queries");
 const { body, validationResult } = require("express-validator");
 
 const messageValidation = [
-    body("title").trim().escape()
+    body("title").trim()
         .notEmpty().withMessage("Message title cannot be empty"), 
-    body("text").trim().escape()
+    body("text").trim()
         .notEmpty().withMessage("Message text cannot be empty"),
     body("user_id")
         .notEmpty().withMessage("User ID cannot be empty")

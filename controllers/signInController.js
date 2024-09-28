@@ -10,7 +10,6 @@ const validateUser = [
     body("password").trim()
         .notEmpty().withMessage("Password must not be empty")
         .isLength({ min: 6}).withMessage("Password must be at least 6 characters")
-        .escape()
 ]
 
 exports.getSignInForm = async (req, res) => {
