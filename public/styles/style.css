@@ -40,13 +40,15 @@ nav {
 nav ul {display: flex; align-items: center;}
 .me-2 { margin-left: 0.5rem}
 .mt-3 { margin-top: 0.75rem}
+.mt-4 { margin-top: 1rem}
+.mt-5 { margin-top: 1.5rem}
 
 .btn {
     padding: 8px 10px;
     border-radius: 3px; 
     background: transparent;
     outline: none; 
-    border: 1px solid rgb(165, 177, 186);;
+    border: 1px solid rgb(165, 177, 186);
     cursor: pointer;
 }
 .btn:hover {
@@ -54,6 +56,18 @@ nav ul {display: flex; align-items: center;}
     color: white;
 
 }
+
+.btn-danger {
+    border-color: red;
+    color: red;
+}
+
+.btn-danger:hover { 
+    background-color: red;
+}
+
+.h-max-content {height: max-content}
+.h-100 { height: 100%; }
 
 .text-center { text-align: center;}
 
@@ -66,3 +80,44 @@ nav ul {display: flex; align-items: center;}
 .gap-1 { gap: 0.25rem;}
 .gap-2 { gap: 0.5rem;}
 .gap-3 { gap: 0.75rem;}
+.gap-4 { gap: 1rem;}
+.gap-5 { gap: 1.5rem;}
+
+.justify-content-center {justify-content: center;}
+.align-center { align-items: center;}
+
+.blurred { filter: blur(0.25rem);}
+.invalid-user { font-style: italic;}
+
+/* CARD  */
+.card {
+    display: grid;
+    grid-template-columns: minmax(500px, 1fr);
+    grid-template-rows: 1fr 3fr 1fr;
+    border: 1px solid black;
+    border-radius: 10px; 
+    box-shadow: 4px 4px 4px 0 rgba(165, 177, 186,0.75);
+    width: min(100%, 500px); 
+    overflow: hidden;
+}
+
+.card:hover{ 
+    box-shadow: 16px 14px 4px 0 rgba(165, 177, 186,0.25);
+}
+
+.card-title, .card-body, .card-footer { 
+    padding: 0.5rem 1.5rem;
+}
+
+
+.card-title { 
+    border-bottom: 1px solid black;
+    background-color: rgb(165, 177, 186);
+}
+.card-title > a, .card-footer {
+    display: flex; 
+    justify-content: space-between;
+}
+.card-footer { border-top: 1px solid black;}
+
+/* END OF CARD */

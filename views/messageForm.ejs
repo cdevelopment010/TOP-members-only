@@ -1,0 +1,19 @@
+<%- include("partials/header") %>
+
+<h2 class="text-center">Create message</h2>
+
+<%- include("partials/errors") %>
+<form action="/messages/create" method="POST" class="d-grid grid-2-col gap-3">
+        <label for="title">Title: </label>
+        <input type="text" name="title" id="title" value="<%= locals.message ? message.title : ''%>" required>
+
+        <label for="text">Text:</label>
+        <input type="text" name="text" id="text" required>
+
+        <input type="text" name="user_id" id="user_id" value="<%= locals?.currentUser?.id %>" hidden>
+
+
+    <button type="submit" class="btn flex-start mt-3" <%= !locals?.currentUser ? 'dsabled' : '' %>>Create message</button>
+</form>
+
+<%- include("partials/footer") %>

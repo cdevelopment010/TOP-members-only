@@ -1,0 +1,30 @@
+<%- include("partials/header") %>
+
+<h2 class="text-center">Message detail:</h2>
+
+    <% if (locals.message) { %> 
+        <div class="d-grid mt-5 gap-5 justify-content-center">
+            <div class="card">
+                <div class="card-title ">
+                    <a href="/messages/<%= message.id %>" class="link-none align-center h-100">
+                        <div><%= message.title %></div>
+                        <div class="<%= locals.currentUser && (currentUser.admin || currentUser.id == message.user_id) ? '' : 'invalid-user' %>"><%= locals.currentUser && (currentUser.admin || currentUser.id == message.user_id) ? message.user : 'Unknow User'%></div>
+                    </a>
+                </div>
+                <div class="card-body">
+                    <%= message.text %>
+                    
+                </div>
+                <div class="card-footer align-center">
+                    <span class="<%= locals.currentUser && (currentUser.admin || currentUser.id == message.user_id) ? '' : 'invalid-user' %>"><%= locals.currentUser && (currentUser.admin || currentUser.id == message.user_id) ? message.created.toLocaleDateString() + " " + message.created.toLocaleTimeString() : 'log in to see date' %></span>
+                    <% if (locals.currentUser && (currentUser.admin || currentUser.id == message.user_id)) { %>
+                        <form action="/messages/delete/<%= message.id %>" method="post">
+                            <input type="text" name="message_id" id="message_id" value="<%=message.id%>" hidden>                                
+                            <button type="submit" class="btn btn-danger h-max-content link-none" onclick="return confirm('Are you sure you want to delete the message?')">DELETE</a>
+                        </form>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    <% } %>
+<%- include("partials/footer") %>

@@ -1,7 +1,11 @@
 const db = require("../db/queries");
 
 exports.getHomePage = async (req, res) =>{
-    res.render("index");
+    const messages = await db.getAllMessages(); 
+
+    res.render("index", {
+        messages: messages
+    });
 }
 
 exports.getLogOut = async (req, res, next) => {

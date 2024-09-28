@@ -6,16 +6,26 @@
   - [x] If signed in then should show Sign out
   - [x] if req.user then show create message
   - [x] Styling
-- [ ] Home page
-  - [ ] Show list of messages as a card
-  - [ ] If admin, show a delete icon in the header
-    - [ ] A user should be able to delete their own message as well
-  - [ ] Click to go to message detail (basically just a card in its own view)
+- [x] Home page
+  - [x] Show list of messages as a card
+  - [x] If admin, show a delete icon in the header
+    - [x] A user should be able to delete their own message as well
+  - [x] Click to go to message detail (basically just a card in its own view)
 - [x] Create user
   - [x] Needs styling
 - [x] Sign in
   - [x] Needs styling
-- [ ] Messages
-  - [ ] List all messages
-  - [ ] Create message
-  - [ ] Don't want to be able to update messages
+- [x] Messages
+  - [x] List all messages
+  - [x] Create message
+  - [x] Don't want to be able to update messages
+  - [x] need a link to messageDetail on message card
+- [ ] Become a member
+  - [ ] Router
+  - [ ] View
+  - [ ] Passcode
+- [ ] Become an admin (hidden feature?)
+  - [ ] Router
+  - [ ] View
+  - [ ] Passcode
+- [ ] Re-write ciews to use Layout.ejs with a body
