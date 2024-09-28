@@ -1,5 +1,3 @@
-<%- include("partials/header") %>
-
 <h2 class="text-center">Create message</h2>
 
 <%- include("partials/errors") %>
@@ -15,5 +13,3 @@
 
     <button type="submit" class="btn flex-start mt-3" <%= !locals?.currentUser ? 'dsabled' : '' %>>Create message</button>
 </form>
-
-<%- include("partials/footer") %>

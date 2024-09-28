@@ -1,5 +1,5 @@
 require("dotenv").config();
-
+const ejsLayouts = require('express-ejs-layouts');
 const path = require("node:path");
 const express = require("express"); 
 const app = express();
@@ -24,6 +24,8 @@ app.use(express.static(assetsPath));
 
 app.set("views", path.join(__dirname,"views"));
 app.set("view engine", "ejs"); 
+app.use(ejsLayouts);
+app.set('layout', 'layout');
 
 app.use(session({ secret: "dogs", resave: false, saveUninitialized: false}));
 app.use(passport.session());
