@@ -26,7 +26,7 @@ exports.postSignUpForm = [
 
     async (req, res, next) => {
 
-        const user = { email: req.body.email }
+        const user = { email: req.body.email, firstname: req.body.firstname, lastname: req.body.lastname }
 
         const errors = validationResult(req); 
         
@@ -45,9 +45,6 @@ exports.postSignUpForm = [
                 }
     
                 //populate db
-                //email, hashedPassword
-                user.firstname = ''; 
-                user.lastname = ''; 
                 user.password = hashedPassword; 
 
                 try {

@@ -13,8 +13,8 @@
   - [x] Click to go to message detail (basically just a card in its own view)
 - [x] Create user
   - [x] Needs styling
-  - [ ] Need additional fields
-    - [ ] first & last name
+  - [x] Need additional fields
+    - [x] first & last name
 - [x] Sign in
   - [x] Needs styling
 - [x] Messages

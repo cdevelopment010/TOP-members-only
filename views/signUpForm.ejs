@@ -7,6 +7,12 @@
     <label for="email">Email: </label>
     <input type="email" name="email" id="email" value="<%= locals.user ? user.email : ''%>" required>
 
+    <label for="firstname">First Name:</label>
+    <input type="text" name="firstname" id="firstname" value="<%= locals.user ? user.firstname : '' %>" required>
+    
+    <label for="lastname">Last Name:</label>
+    <input type="text" name="lastname" id="lastname" value="<%= locals.user ? user.lastname : '' %>" required>
+
     <label for="password">Password:</label>
     <input type="Password" name="password" id="password" required>
     
