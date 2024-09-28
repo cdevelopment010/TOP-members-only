@@ -31,7 +31,12 @@ app.use(passport.session());
 
 
 passport.use(
-    new LocalStrategy(async (email, password, done) => {
+    new LocalStrategy(
+        {
+            usernameField: 'email', 
+            passwordField: 'password'
+        },
+        async (email, password, done) => {
         try {
             const user = await db.getUserByEmail(email);
             if(!user) {
@@ -62,6 +67,11 @@ passport.deserializeUser(async (id, done) => {
     } catch(err) {
         done(err);
     }
+})
+
+app.use((req, res, next) => {
+    res.locals.currentUser = req.user;
+    next(); 
 })
 
 

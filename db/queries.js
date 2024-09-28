@@ -18,3 +18,9 @@ exports.postCreateUser = async(user) => {
         `, [user.firstname, user.lastname, user.email, user.password]);
     return rows[0].id;
 }
+
+exports.updateLastLogin = async(id) => {
+    await pool.query(`
+            UPDATE users SET lastlogin = NOW() WHERE id = $1
+        `, [id]);
+}

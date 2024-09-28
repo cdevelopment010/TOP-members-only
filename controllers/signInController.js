@@ -1,5 +1,6 @@
 const { body, validationResult} = require("express-validator"); 
 const passport = require("passport");
+const db = require("../db/queries");
 
 const validateUser = [
     body("email").trim()
@@ -13,30 +14,40 @@ const validateUser = [
 ]
 
 exports.getSignInForm = async (req, res) => {
-    res.render("signInForm");
+    console.log(req.user);
+    if (req.user) {
+        return res.redirect("/");
+    }
+    res.render("signInForm", {
+        errors: req.session.messages?.map(x => {return {msg: x}})
+    });
+    req.session.messages = [];
+    req.session.save(err => {
+        if (err) console.log(err);
+    });
 }
 
-exports.postSignInForm = passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/sign-in"
-})
+exports.postSignInForm = (req, res, next) => {
+    passport.authenticate("local", (err, user, info) => {
+        if (err) {
+            return next(err); 
+        }
 
-// exports.postSignInForm = [
-//     validateUser,
+        if (!user) {
+            return res.redirect("/sign-in"); 
+        }
 
-//     async (req, res) => {
-
-//         const user = { email: req.body.email }
-
-//         const errors = validationResult(req); 
-        
-//         if(!errors.isEmpty()) {
-
-//             return res.status(400).render("signInForm", {
-//                 user: user,
-//                 errors: errors.array()
-//             })
-//         }
-//         res.redirect("/")
-//     }
-// ]
+        // Log the user in
+        req.logIn(user, async (err) => {
+            if (err) {
+                return next(err); 
+            }
+            try {
+                await db.updateLastLogin(user.id);
+                return res.redirect("/"); 
+            } catch (dbError) {
+                return next(dbError); 
+            }
+        });
+    })(req, res, next); 
+};

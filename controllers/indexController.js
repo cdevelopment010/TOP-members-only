@@ -1,3 +1,5 @@
+const db = require("../db/queries");
+
 exports.getHomePage = async (req, res) =>{
     res.render("index");
 }

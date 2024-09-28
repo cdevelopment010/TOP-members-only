@@ -1,3 +1,35 @@
 <%- include("partials/header") %>
-hi
+<h1>TOP Members Only</h1>
+
+<!-- User not signed in! -->
+<% if(!locals.currentUser) { %>
+    <p><a href="/sign-in">Sign in</a> or <a href="/sign-up">create an account</a></p>
+<% } %>
+
+<% if (locals.currentUser && !locals.currentUser.membershipstatus) { %>
+    <p>Looks like you're not a full member. Update your account to  <a href="/join-the-club">become a full member</a></p>
+<% } %>
+
+<% if (locals.currentUser) { %> 
+    <a href="/messages/create" class="btn">Create message</a>
+<% } %>
+
+
+<% if (locals.messages) { %>
+    <% messages.forEach(message => { %> 
+        <div class="card">
+            <div class="card-title">
+                <span><%= message.title %></span>
+                <span class="<%= locals.currentUser && locals.currentUser.membershipstatus ? '' : 'blurred' %>"><%= message.user %></span>
+            </div>
+            <div class="card-body">
+                <%= message.text %>
+                
+            </div>
+            <div class="card-footer">
+                <span class="<%= locals.currentUser && locals.currentUser.membershipstatus ? '' : 'blurred' %>"><%= message.created %></span>
+            </div>
+        </div>
+    <% }) %>
+<% } %>
 <%- include("partials/footer") %>
