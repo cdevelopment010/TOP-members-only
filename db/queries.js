@@ -20,11 +20,22 @@ exports.postCreateUser = async(user) => {
 }
 
 exports.updateLastLogin = async(id) => {
-    await pool.query(`
+    return await pool.query(`
             UPDATE users SET lastlogin = NOW() WHERE id = $1
         `, [id]);
 }
 
+exports.updateAdmin = async (id) => {
+    return await pool.query(`
+        UPDATE users SET admin = true WHERE id = $1
+    `, [id])
+}
+
+exports.updateMembership = async (id) => {
+    return await pool.query(`
+        UPDATE users SET membershipstatus = true WHERE id = $1
+    `, [id])
+}
 
 //messages
 exports.getAllMessages = async () => {

@@ -1,0 +1,17 @@
+<%- include("partials/header") %>
+<h2 class="text-center">Become an Admin</h2>
+
+<p>This is top secret - how did you find it?!</p>
+
+<%- include("partials/errors") %>
+
+<form action="/admin" method="POST" class="d-grid grid-2-col gap-3">
+    <label for="passcode">Secret passcode: </label>
+    <input type="password" name="passcode" id="passcode" required>
+
+    <input type="text" name="user_id" id="user_id" value="<%= locals?.currentUser?.id %>" hidden>
+
+    <button type="submit" class="btn">Update account</button>
+</form>
+
+<%- include("partials/footer") %>

@@ -13,6 +13,8 @@
   - [x] Click to go to message detail (basically just a card in its own view)
 - [x] Create user
   - [x] Needs styling
+  - [ ] Need additional fields
+    - [ ] first & last name
 - [x] Sign in
   - [x] Needs styling
 - [x] Messages
@@ -20,12 +22,12 @@
   - [x] Create message
   - [x] Don't want to be able to update messages
   - [x] need a link to messageDetail on message card
-- [ ] Become a member
-  - [ ] Router
-  - [ ] View
-  - [ ] Passcode
-- [ ] Become an admin (hidden feature?)
-  - [ ] Router
-  - [ ] View
-  - [ ] Passcode
+- [x] Become a member
+  - [x] Router
+  - [x] View
+  - [x] Passcode
+- [x] Become an admin (hidden feature?)
+  - [x] Router
+  - [x] View
+  - [x] Passcode
 - [ ] Re-write ciews to use Layout.ejs with a body
