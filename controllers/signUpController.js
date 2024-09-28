@@ -24,7 +24,7 @@ exports.getSignUpForm = async (req, res) => {
 exports.postSignUpForm = [
     validateUser,
 
-    async (req, res) => {
+    async (req, res, next) => {
 
         const user = { email: req.body.email }
 
@@ -50,9 +50,23 @@ exports.postSignUpForm = [
                 user.lastname = ''; 
                 user.password = hashedPassword; 
 
-                const id = await db.postCreateUser(user);
+                try {
+                    const id = await db.postCreateUser(user);
+                    user.id = id;
+
+                    req.login(user, (err)=> {
+                        if (err) { return next(err)}
+                        return res.redirect("/");
+                    })
+
+                } catch(err) {
+                    const errors = [{msg: err.detail, code: err.code}]
+                    return res.status(400).render("signUpForm", {
+                        user: user,
+                        errors: errors
+                    })
+                }
     
-                res.redirect("/")
             })
 
         } catch(err) {

@@ -11,10 +11,10 @@
   - [ ] If admin, show a delete icon in the header
     - [ ] A user should be able to delete their own message as well
   - [ ] Click to go to message detail (basically just a card in its own view)
-- [ ] Create user
-  - [ ] Needs styling
-- [ ] Sign in
-  - [ ] Needs styling
+- [x] Create user
+  - [x] Needs styling
+- [x] Sign in
+  - [x] Needs styling
 - [ ] Messages
   - [ ] List all messages
   - [ ] Create message

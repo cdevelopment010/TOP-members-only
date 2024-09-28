@@ -39,7 +39,7 @@ nav {
 
 nav ul {display: flex; align-items: center;}
 .me-2 { margin-left: 0.5rem}
-
+.mt-3 { margin-top: 0.75rem}
 
 .btn {
     padding: 8px 10px;
@@ -54,3 +54,15 @@ nav ul {display: flex; align-items: center;}
     color: white;
 
 }
+
+.text-center { text-align: center;}
+
+.d-flex { display: flex;}
+.d-grid { display: grid;}
+.flex-column { flex-direction: column;}
+.flex-start { align-self: start;}
+
+.grid-2-col { grid-template-columns: max-content max-content;}
+.gap-1 { gap: 0.25rem;}
+.gap-2 { gap: 0.5rem;}
+.gap-3 { gap: 0.75rem;}

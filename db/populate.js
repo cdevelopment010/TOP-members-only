@@ -7,7 +7,7 @@ const SQL = `
         id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
         firstname VARCHAR(255) NOT NULL,
         lastname VARCHAR(255) NOT NULL,
-        email VARCHAR(255) NOT NULL,
+        email VARCHAR(255) NOT NULL UNIQUE,
         password VARCHAR(255) NOT NULL,
         admin BOOLEAN DEFAULT FALSE,
         membershipstatus BOOLEAN DEFAULT FALSE,
