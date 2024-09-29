@@ -2,7 +2,7 @@
 
 <%- include("partials/errors") %>
 
-<form action="/sign-up" method="POST" class="d-grid grid-2-col gap-3">
+<form action="/sign-up" method="POST" class="d-grid grid-2-col-md gap-3 justify-content-center">
     <label for="email">Email: </label>
     <input type="email" name="email" id="email" value="<%= locals.user ? user.email : ''%>" required>
 

@@ -1,7 +1,7 @@
 <h2 class="text-center">Create message</h2>
 
 <%- include("partials/errors") %>
-<form action="/messages/create" method="POST" class="d-grid grid-2-col gap-3">
+<form action="/messages/create" method="POST" class="d-grid  grid-2-col-md gap-3 justify-content-center">
         <label for="title">Title: </label>
         <input type="text" name="title" id="title" value="<%= locals.message ? message.title : ''%>" required>
 

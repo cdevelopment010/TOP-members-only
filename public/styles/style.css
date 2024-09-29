@@ -121,3 +121,8 @@ nav ul {display: flex; align-items: center;}
 .card-footer { border-top: 1px solid black;}
 
 /* END OF CARD */
+
+
+@media screen and (min-width: 500px) {
+    .grid-2-col-md { grid-template-columns: max-content max-content;}   
+}
