@@ -27,12 +27,16 @@ exports.getSignInForm = async (req, res) => {
 
 exports.postSignInForm = (req, res, next) => {
     passport.authenticate("local", (err, user, info) => {
+        
         if (err) {
             return next(err); 
         }
 
         if (!user) {
-            return res.redirect("/sign-in"); 
+            let errors = [{msg: "User does not exist. Please create user."}]
+            return res.status(400).render("signInForm", {
+                errors: errors,
+            })
         }
 
         // Log the user in
